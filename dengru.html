@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background: url(images/bg.jpg) no-repeat center 0">
+	<div class="container" id="chuangkou">
+	    <div class="row">
+	        <div class="col-md-4 col-sm-3 col-xs-0">
+
+	        </div>
+	        <div class="col-md-4 col-sm-6  col-xs-12 dr">
+	        	<div class="panel panel-default">
+	        		<div class="panel-heading">
+	        			<h2 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  登录</h2>
+						<h2 class="panel-title panel-title_2"> <a href="zhuce.html">注册</a></h2>
+					</div>
+					<div class="panel-body">
+				        <form>
+				        	<div class="row">
+								<div class="col-md-1 col-sm-1 col-xs-1"></div>
+								<div class="col-md-10 col-sm-10 col-xs-10">
+								   <p class="errors"></p>
+								</div>
+								<div class=" col-md-1 col-sm-1 col-xs-1"></div>
+
+
+				        	</div>
+					        <div class="row ">
+						        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+								<div class="form-group col-md-10 col-sm-10 col-xs-10">
+								    <input type="email" class="form-control input_email" id="inputEmail3" a="0"   placeholder="请输入邮箱">
+								</div>
+								<div class=" col-md-1 col-sm-1 col-xs-1"></div>
+							</div>
+							<div class="row">
+						 		<div class="col-md-1 col-sm-1 col-xs-1"></div>
+						  		<div class="form-group col-md-10 col-sm-10 col-xs-10">
+						   			 <input type="password" class="form-control input_password"  id="exampleInputPassword1" a="0" maxlength="6"  placeholder="请输入密码">
+						 		</div>
+						  		<div class="col-md-1 col-sm-1 col-xs-1"></div>
+							</div>
+							<div class="row"> 
+							  	<div class="col-md-1 col-sm-2 col-xs-2"></div>
+							  	<div class="col-md-3 col-xs-4 col-sm-4">
+								   	<label>
+							         	 <h5><input type="checkbox"> 记住我</h5>
+							       	</label>
+							    </div>
+							    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+							    <div class="col-md-4 col-xs-4 col-sm-4">
+								   <label>
+							          <h5><a href="#">忘记密码？</a>	</h5>
+							       </label>
+							    </div>
+							    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+							</div>
+						    <div class="row"> 
+							  	<div class="col-md-2 col-sm-2 col-xs-2"></div>
+							    <div class="col-md-8 col-sm-8 col-xs-8">
+									<button type="button" class="btn btn-info dran" id="denglu" disabled="disabled">登录</button>
+								</div>
+								<div class="col-md-2 col-sm-2 col-xs-2">
+							</div>
+					</form>
+						
+				    </div>
+				</div>
+
+	        </div>
+	        <div class="col-md-4 col-sm-3 col-xs-0">
+
+	        </div>
+		</div>
+	</div>
+	
+
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script>
+    $(document).ready(function(){
+				
+				//邮箱验证函数
+				function checkEmail(str){
+   				 var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+    			if(re.test(str)){
+       					 return "yes";
+    				}
+    			else{
+       				 return "no";
+   				 }
+			}
+
+			$(".input_email").focus(function(){
+				$(this).css("background-color","#fff");
+				});
+
+				//验证邮箱是否填写有效	
+				  $(".input_email").blur(function(){
+
+				  	var input_email=$(this).val();
+
+				  	if(input_email===""){
+				  			$(".errors").html("邮箱不能为空！");
+				 			$(".input_email").css("border-color","red");
+				 			$(".input_email").attr("a",0);
+				 			}
+
+				 	$.ajax({
+		                type: "post",
+		                url: "http://118.89.49.108:8088/WebService.asmx/CZ_EMAIL",
+		                data: {},// {line:tline,shift:tshift,area:tarea}
+		                dataType: "XML", //返回的类型为XML ，和前面的Json，不一样了
+		                success: function(result) {
+                    try {
+	                        $(result).find("T_yonghu").each(function () {
+	                        	var id = $(this).children("email");   //获取id节点
+	                    		email = id.text();   
+	                    		if(email===input_email)
+	                    		{
+	                    			$(".input_email").css("border-color","#468847");
+	                    			$(".errors").html("");
+	                    			$(".input_email").attr("a",1);
+
+	                    			return false;
+	                    		}
+							});
+			                    }
+			                    catch (e) {
+			                       		 alert(e);
+
+			                        		return;
+                   				 	}
+             	  			},
+                		error:function(result, status) { //如果没有上面的捕获出错会执行这里的回调函数
+                 		   if (status == 'error') {
+                      	  alert("调用WebService失败！");
+
+                    	}
+                    }
+
+                    });	
+				 if(input_email!=""){
+						if(checkEmail(input_email)==="yes")
+				 				{
+				 					
+				 					$(".input_email").css("border-color","red");
+				 					$(".errors").html("邮箱未注册 <a href='zhuce.html'>去注册</a>");
+				 					$(".input_email").attr("a",0);
+				 					
+				 			}
+				 			if(checkEmail(input_email)==="no")
+				 				{
+				 					
+				 					$(".input_email").css("border-color","red");
+				 					$(".input_email").attr("a",0);
+				 					$(".errors").html("邮箱格式不正确")
+				 					
+				 					
+				 			}
+
+				 		}
+
+               	 	 });
+
+				    $(".input_password").focus(function(){
+				    	$(this).css("background-color","#fff");
+				    	
+				  });
+
+				    $(".input_password").blur(function(){
+
+				  		var input_password=$(".input_password").val();
+				  		var input_email=checkEmail($(".input_email").val())
+				  		var reg = /^[0-9a-zA-Z]+$/;
+					if(input_password=="")
+								{
+									$(this).css("border-color","red");
+									$(".errors").html("密码不能为空！")
+									$('#denglu').attr("disabled",true);
+								}
+						 		
+						 		if(input_password!=""){
+
+									if(input_password.length<6||!reg.test(input_password)){
+
+										
+							 			$(this).css("border-color","red");
+							 			$(".input_password").attr("a",0);
+							 			$(".errors").html("密码格式有误！")
+							 			$('#denglu').attr("disabled",true);
+							 			
+									}
+									else{
+
+										
+										$(this).css("border-color","#468847");
+							 			$(".input_password").attr("a",1);
+							 			$(".errors").html("")
+						 				$('#denglu').attr("disabled",false);
+
+										}
+								}
+
+									
+
+						
+
+
+
+				});
+
+
+            $("#denglu").click(function () {
+                var input_email=$(".input_email").val();
+                var input_password=$(".input_password").val();
+				$.ajax({
+                    type: "post",
+                    url: "http://118.89.49.108:8088/WebService.asmx/CZMM_EMAIL",
+                    data: {email:input_email},// {line:tline,shift:tshift,area:tarea}
+                    dataType: "XML", //返回的类型为XML ，和前面的Json，不一样了
+                    success: function (result) {
+                        try {    
+                        		 $(result).find("T_yonghu").each(function () {
+                        		var id = $(this).children("password");   //获取id节点
+                    			password = id.text();   
+                    			if(input_password===password)
+                    			{
+                    				window.location.replace("index.html");
+								}
+                    			else{
+                    				alert("密码错误！")
+                    			}
+
+                    		});
+
+                        }
+                        catch (e) {
+                            alert(e);
+
+                            return;
+                        }
+                    
+                    }
+                    
+                   
+                });
+                });
+ })
+
+ </script>
+</body>
+</html>

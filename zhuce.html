@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">	
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background: url(images/bg.jpg) no-repeat center 0" onload="createCode(), zhuce() ">   
+	<div class="container" id="chuangkou">
+	    <div class="row">
+	        <div class="col-md-4 col-sm-3 col-xs-0">
+
+	        </div>
+	        <div class="col-md-4 col-sm-6 col-xs-12 dr">
+	        	<div class="panel panel-default">
+	        		<!-- 头部信息，可以跳转到登录界面 -->
+	        		<div class="panel-heading">
+								<h2 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>  注册</h2>
+								<h2 class="panel-title  panel-title_2"> 已有账号? <a href="dengru.html">登录</a></h2>
+					</div>
+					<!-- 主体部分-->
+					<div class="panel-body  zc-panel-body">
+				        <form>
+				        <!-- 显示错误信息区域 -->
+							<div class="row show_errors">
+								<div class="col-md-1 col-sm-1 col-xs-1 "></div>
+								<div class="col-md-10 col-sm-10 col-xs-10">
+									<p class="error"></p>
+								</div>
+								<div class="col-md-1 col-sm-1 col-xs-1"></div>
+							</div>
+				        	<!-- 姓名输入区域 -->
+							<div class="form-group input_name">
+								<div class="row">
+								  	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+								   	<div class="col-md-10 col-sm-10 col-xs-10">
+										<input type="text" class="form-control aa user_name"  maxlength="5" placeholder="姓名">
+									</div>
+									<div class="col-md-1 col-sm-1 col-xs-1 " ></div>
+								</div>
+							</div>
+				        	<!-- 用户名输入区域 -->
+							<div class="form-group">
+								<div class="row">
+								  	<div class="col-md-1 col-sm-1 col-xs-1"></div>
+								   	<div class="col-md-10 col-sm-10 col-xs-10">
+										<input type="text" class="form-control aa user_nicheng"  maxlength="8" placeholder="用户名">
+									</div>
+									<div class="col-md-1 col-sm-1 col-xs-1 " ></div>
+								</div>
+							</div>
+							  <!-- 邮箱输入区域 -->
+							<div class="form-group">
+								<div class="row">
+								  	<div class="col-md-1col-sm-1 col-xs-1"></div>
+										<div class="col-md-10 col-sm-10 col-xs-10">
+											<input type="email" class="form-control aa user_email" id="inputEmail4"  placeholder="邮箱">
+										</div>
+									<div class="col-md-10 col-sm-1 col-xs-1 " ></div>
+								</div>
+							</div>
+							  
+							<!-- 密码输入区域 -->
+							<div class="form-group">
+							  	<div class="row">
+								    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+									<div class="col-md-10 col-sm-10 col-xs-10">
+										<input type="password" class="form-control aa user_password"  id="exampleInputPassword1" placeholder="6位字母数字密码" maxlength="6">
+								 	</div>
+									<div class="col-md-1 col-sm-1 col-xs-1"></div>
+								</div>
+							</div>
+							<!-- 验证码输入区域 -->
+							<div class="form-group">
+							 	<div class="row">
+								    <div class="col-md-1 col-sm-1 col-xs-1 "></div>
+									<div class="col-md-5 col-sm-6 col-xs-6">
+										<input type="text" class="form-control aa user_yanzhengma"   placeholder="验证码">
+									</div>
+									<div class="col-md-3 col-sm-3 col-xs-5  code " id="checkCode" onclick="createCode()"></div>		
+									<div class="col-md-5 yanzhengma"><a href="#" onclick="createCode()">看不清换一张</a>	</div>
+							 	</div>
+							</div>
+							<!-- 使用条款 选项区域 -->
+							<div class="row ">
+								<div class="col-md-1 col-sm-2 col-xs-2 "></div>
+								<div class="col-md-10 col-sm-6 col-xs-8">
+									<input id="accept_term" name="accept_term" type="checkbox" value="0"  class="shiyongtiaokuan" />
+									<label>已阅读并同意</label>  <a data-toggle="modal" href="#modal-container-190172" >使用条款</a>
+								</div>
+									<!-- 模态框，显示使用条款 -->
+									<div class="modal fade" id="modal-container-190172" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+													×
+													</button>
+													<h4 class="modal-title" id="myModalLabel">使用条款</h4>
+												</div>
+												<div class="modal-body">
+													<form role="form">
+														<div class="form-group">
+															<ul>
+																<li>有</li>
+																<li>待</li>
+																<li>完</li>
+																<li>善</li>
+																
+															</ul>
+														</div>
+													</form>	
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 模态弹框结束 -->
+									
+								<div class="col-md-1 col-sm-4 col-xs-2"></div>
+							</div>
+							
+
+							<!-- 注册按钮区域 -->
+						  	<div class="row ">
+								<div class="col-md-3 col-sm-3 col-xs-3 "></div>
+								<div class="col-md-6 col-sm-6 col-xs-6">
+									<button type="button" class="btn btn-info  zcan" id="zhuce"	 onclick="setTimeout('replaceDoc()',1000)" >注册</button>
+								</div>
+								<div class="col-md-3 col-sm-3 col-xs-3"></div>
+							</div>	
+						</form>
+						
+				    </div>
+				</div>
+
+	        </div>
+	        <div class="col-md-4  col-sm-3 col-xs-0"></div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+	<script type="text/javascript">
+			//验证码产生函数
+			var code;
+			function createCode() 
+			{
+			 code = "";
+			 var codeLength = 6; //验证码的长度
+			 var checkCode = document.getElementById("checkCode");
+			 var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+			      'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+			      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); 
+			 for(var i = 0; i < codeLength; i++) 
+			 {
+			  var charNum = Math.floor(Math.random() * 52);
+			  code += codeChars[charNum];
+			 }
+			 if(checkCode) 
+			 {
+			  checkCode.className = "code";
+			  checkCode.innerHTML = code;
+			 }
+			};
+			function zhuce() 
+			{
+				var shopping = document.getElementById("zhuce");
+				shopping.setAttribute("disabled","disabled");
+			}
+			function replaceDoc()
+			{
+				window.location.replace("dengru.html");
+
+			}
+
+
+			
+			
+		</script>
+		<script>
+
+		$(document).ready(function(){
+
+		//姓名验证（验证是否已经注册，是否为空）
+		//姓名输入框聚焦函数（背景变为白色）
+		$(".user_name").focus(function(){
+			$(this).css("background-color","#fff");
+			});
+		//姓名输入框焦点离开函数
+		$(".user_name").blur(function(){
+			var user_name=$(".user_name").val();//获取姓名输入框内容
+			name_length=user_name.length;
+				//将姓名中空格去除函数
+				function trim(str) {
+  						return str.replace(/(^\s+)|(\s+$)/g, "");
+						}
+
+				user_name=trim(user_name);//调用空格去除函数
+				name_length=user_name.length;//字符串长度
+				  	 $.ajax({
+              			  	type: "post",
+               				url: "http://118.89.49.108:8088/WebService.asmx/CZ_NAME",//从webservices调用，对照，查询是否已经注册
+              				data: {},// {line:tline,shift:tshift,area:tarea}
+               				dataType: "XML", 
+               				 success: function(result) {
+							try {
+               				 	 $(result).find("T_yonghu").each(function () {
+	                 					var name = $(this).children("name");   //获取name节点
+			                    		var name = name.text(); //获取name节点内容
+			                    		if(user_name===name){ //姓名已注册
+													$(".error").html("姓名已注册！");
+										 			$(".user_name").css("border-color","red");
+										 			$(".zcan").attr("disabled","disabled");
+										 			return;
+										 		}
+			                    		if(name_length<2||name_length>5 ){//输入框为空
+											$(".error").html("姓名需2-5个字！");
+								 			$(".user_name").css("border-color","red");
+								 			$(".zcan").attr("disabled","disabled");
+								 			return;
+
+										}
+									});
+								}
+							catch (e) {
+			                       		 alert(e);
+
+			                        		return;
+                   				 		}
+             	  		},
+             	  		error:function(result, status) { //如果没有上面的捕获出错会执行这里的回调函数
+                 		   if (status == 'error') {
+                      	  alert("调用WebService失败！");
+                      	}
+               	 	}
+               	 });
+
+				if(user_name!="" ){//姓名可用
+						$(".user_name").css("border-color","#468847");
+						$(".error").html("");
+						return;
+						}
+					});
+			//用户名验证
+			////用户名输入框聚焦函数（背景变为白色）
+			 $(".user_nicheng").focus(function(){
+				    $(this).css("background-color","#fff");
+				 });
+			//姓名输入框焦点离开函数（验证昵称是否输入正确）
+			$(".user_nicheng").blur(function(){
+					var user_nicheng=$(".user_nicheng").val();
+				  	//去掉空格
+				  	function trim(str) {
+  						return str.replace(/(^\s+)|(\s+$)/g, "");
+					}
+					user_nicheng=trim(user_nicheng);
+					nicheng_length=user_nicheng.length;
+					if(user_nicheng<2 ){
+						
+						$(".error").html("用户名需2-8个字符！");
+						$(".user_nicheng").css("border-color","red");
+						$(".zcan").attr("disabled","disabled");
+							return;	
+
+						}
+
+				  	 $.ajax({
+              			  type: "post",
+               				 url: "http://118.89.49.108:8088/WebService.asmx/CZ_NICHENG",
+              				data: {},// {line:tline,shift:tshift,area:tarea}
+               				dataType: "XML", //返回的类型为XML ，和前面的Json，不一样了
+               				 success: function(result) {
+							try {
+               				 	 $(result).find("T_yonghu").each(function () {
+                 					
+                 						var id = $(this).children("nicheng");   //获取id节点
+			                    		var nicheng = id.text(); 
+			                    		if(user_nicheng===nicheng ){
+
+											
+								 			$("。error").html("此用户名已注册！");
+								 			$(".user_nicheng").css("border-color","red");
+								 			$(".zcan").attr("disabled","disabled");
+
+								 			return;
+
+										}
+
+							 	});
+
+               				 	}
+
+								
+			                   	catch (e) {
+			                       		 alert(e);
+
+			                        		return;
+                   				 		}
+             	  		},
+             	  		
+                			error:function(result, status) { //如果没有上面的捕获出错会执行这里的回调函数
+                 		   if (status == 'error') {
+                      	  alert("调用WebService失败！");
+
+                    	}
+               	 	}
+               		
+					  
+				  });
+
+				  	 if(nicheng_length<8&&nicheng_length>=2 ){	
+												
+									 			$(".user_nicheng").css("border-color","#468847");
+									 			$(".error").html("");
+									 			return;
+									 			
+									}
+
+				  	 });
+			
+				//邮箱验证
+				
+				//邮箱输入框聚焦函数（背景变为白色）
+				
+				 $(".user_email").focus(function(){
+				    	$(this).css("background-color","#fff");
+				    	
+				 });
+				 //邮箱输入框失去聚焦函数
+				  //验证邮箱是否填写有效	
+				  $(".user_email").blur(function(){
+						var user_email=$(this).val();
+				  		var zhuangtai="yes";
+
+			   //      if(user_email===""){
+						// 	$(".error").html("邮箱不能为空!");
+						// 	$(".user_email").css("border-color","red");
+						// 	$(".zcan").attr("disabled","disabled");
+						// }
+					
+							 		
+				  	$.ajax({
+              			  type: "post",
+               				 url: "http://118.89.49.108:8088/WebService.asmx/CZ_EMAIL",
+              				data: {},// {line:tline,shift:tshift,area:tarea}
+               				dataType: "XML", //返回的类型为XML ，和前面的Json，不一样了
+               				 success: function(result) {
+                 					try {
+			                       
+                 						//邮箱验证函数
+										function checkEmail(str){
+						   				 var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+						    			if(re.test(str)){
+						       					 return "yes";
+						    				}
+						    			else{
+						       				 return "no";
+						   				 }
+									}
+
+
+
+			                 	$(result).find("T_yonghu").each(function () {
+			                        	var id = $(this).children("email");   //获取id节点
+			                    		var email  = id.text();   
+
+			                    		if(user_email==="")
+							 				{
+							 					
+							 					$(".error").html("邮箱不能为空!");
+							 					$(".user_email").css("border-color","red");
+							 					$(".zcan").attr("disabled","disabled");
+							 					return;
+							 					
+							 			}
+
+							 			if(checkEmail(user_email)==="no")
+							 				{
+							 					
+							 					$(".error").html("邮箱输入有误!");
+							 					$(".user_email").css("border-color","red");
+							 					$(".zcan").attr("disabled","disabled");
+							 					return;
+							 					
+							 			}
+
+			                    		if(user_email===email)
+			                         	{
+			                         		
+							 					$(".error").html("此邮箱邮箱已注册<a href='dengru.html'>点击登录</a>!");
+							 					$(".user_email").css("border-color","red");
+							 					$(".zcan").attr("disabled","disabled");
+							 					return;
+								 			
+			                         	}
+			                        
+
+						 		});
+			                    }
+			                    	catch (e) {
+			                       		 alert(e);
+
+			                        		return;
+                   				 		}
+             	  				 },
+                			error:function(result, status) { //如果没有上面的捕获出错会执行这里的回调函数
+                 		   if (status == 'error') {
+                      	  alert("调用WebService失败！");
+
+                    	}
+               	 	}
+
+               	 	 });
+				  	//邮箱验证函数
+										function checkEmail(str){
+						   				 var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+						    			if(re.test(str)){
+						       					 return "yes";
+						    				}
+						    			else{
+						       				 return "no";
+						   				 }
+									}
+               	 	 if(checkEmail(user_email)==="yes")
+							 {
+							 	$(".error").html("");
+							 	$(".user_email").css("border-color","#468847");
+
+							 }
+							 		
+               	});
+
+				 $(".user_password").focus(function(){
+				    	$(this).css("background-color","#fff");
+				    	
+				  });
+
+				  
+				 	//验证密码是否填写有效	
+				  $(".user_password").blur(function(){
+
+				  	var user_password=$(".user_password").val();
+				  	var length=user_password.length;
+				  	var reg = /^[0-9a-zA-Z]+$/;
+					
+				 		
+
+
+				 		if(length===0){
+				 			
+					 			$(".error").html("密码不能为空!");
+					 			$(".user_password").css("border-color","red");
+					 			$(".zcan").attr("disabled","disabled");
+						}
+
+				 		if(length!=0){
+
+							if(user_password.length<6||!reg.test(user_password)){
+
+								
+					 			$(".error").html("填写有误!");
+					 			$(".user_password").css("border-color","red");
+					 			$(".zcan").attr("disabled","disabled");
+
+							}
+							
+				 			else{
+				 				
+				 			$(".error").html("");
+				 			$(this).css("border-color","#468847");
+				 		}
+
+				 		}
+				 			
+					  
+				  });
+				  //验证码验证函数
+				  function validateCode(str) 
+					{
+					 
+					 if(str.length <= 0) 
+					 {
+					   return "请输入验证码！";
+					 }
+					 else if(str!= code) 
+					 {
+					   return "验证码输入有误！";
+					   
+					 }
+					if(str==code) 
+					 {	
+					  return "验证码正确";
+					 }    
+					} ;
+					$(".user_yanzhengma").focus(function(){
+				    	$(this).css("background-color","#fff");
+				    	
+				  });
+
+				  
+				 	//验证验证码是否输入正确,调用前面的函数validateCode(),
+				  $(".user_yanzhengma").blur(function(){
+
+				  	var user_yanzhengma=$(".user_yanzhengma").val();
+
+							if(validateCode(user_yanzhengma)==="请输入验证码！" ){
+
+								
+					 			$(".error").html("验证码不能为空！");
+					 			$(this).css("border-color","red");
+					 			$(".zcan").attr("disabled","disabled");
+
+							}
+							if(validateCode(user_yanzhengma)==="验证码输入有误！" ){
+
+								
+					 			$(".error").html("验证码输入错误！");
+					 			$(this).css("border-color","red");
+					 			createCode();
+					 			$(".zcan").attr("disabled","disabled");
+
+							}
+				 			if(validateCode(user_yanzhengma)==="验证码正确" ){
+				 				
+				 				$(".error").html("");
+				 				$(this).css("border-color","#468847");
+				 		}
+
+				 		
+				 			
+					  
+				  });
+
+				
+
+
+
+				 
+
+				  //验证是否同意条款以及前面是否填写正确，正确就设置disabled为false
+  				$(".shiyongtiaokuan").click(function(){
+  					var a=$(".user_name").text();
+  					var b=$(".user_password").text();
+  					var c=$(".user_yanzhenma").text();
+  					var d=$(".user_nicheng").text();
+  					var e=$(".user_name").text();
+  					var f=$(".shiyongtiaokuan").is(':checked');
+				  
+				  
+				  			
+				  	
+  					if(a==""&&b==""&&c==""&&d==""&&e==""&&f==true)
+				  		{
+				  			$('.zcan').attr("disabled",false);
+				  }
+				  if(a==""&&b==""&&c==""&&d==""&&e==""&&f==false)
+				  		{
+				  			$('.zcan').attr("disabled","disabled");
+				  }
+				   
+
+
+				  });
+
+  				$("#zhuce").click(function(){
+
+  					var name=$(".user_name").val();
+  					var email=$(".user_email").val();
+  					var password=$(".user_password").val();
+  					var nicheng=$(".user_nicheng").val();
+  				$.ajax({
+                    type: "post",
+                    url: "http://118.89.49.108:8088/WebService.asmx/ZC_YH",
+                    data: {name:name,password:password,email:email,nicheng:nicheng},// {line:tline,shift:tshift,area:tarea}
+                    dataType: "XML", //返回的类型为XML ，和前面的Json，不一样了
+                    success: function (result) {
+
+           
+                        
+                        
+                        try {    
+                        		var jg = $(result).find("string").text();
+
+                            	if(jg==="注册成功")
+                            	{
+                            		alert("恭喜你注册成功，请稍等跳转到登录页面！");
+                            	}
+
+                        }
+                        catch (e) {
+                            alert(e);
+
+                            return;
+                        }
+                    },
+                    error: function (result, status) { //如果没有上面的捕获出错会执行这里的回调函数
+                        if (status == 'error') {
+                            alert("调用WebService失败！");
+
+                        }
+                    }
+                });
+
+  				})
+				 
+
+			});
+
+			
+
+	</script>
+	
+</body>
+</html>	

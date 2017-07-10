@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎你！</title>
+<style type="text/css">
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,tr,td {margin:0;padding:0; font-size:12px;} 
+		table {border-collapse:collapse;border-spacing:0;} 
+	fieldset,img {border:0} 
+	address,caption,cite,code,dfn,em,strong,th,var {font-style:normal;font-weight:normal} 
+	ol,ul {list-style:none} 
+	caption,th,td{text-align:center} 
+	h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight:normal} 
+	q:before,q:after {content:''} 
+	abbr,acronym { border:0}
+.odiv{position:relative; color: red; font-size:20px;}
+</style>
+</head>
+ 
+<body onclick="setTimeout('replaceDoc()',50)">
+<div id="odiv" class="odiv">
+ 欢迎你！
+</div>
+</body>
+</html>
+<script language="javascript">
+function replaceDoc()
+			{
+				window.location.replace("aa.html");
+
+			}
+window.onload = function(){
+ var odiv = document.getElementById('odiv');
+ odiv.onmouseover = function(){
+  startMov(this);
+ };
+ function startMov(obj){
+  setInterval(function(){
+  obj.style.width = parseInt(getStyle(obj,'width'))+1+'px';
+  obj.style.fontSize = parseInt(getStyle(obj,'fontSize'))+1+'px';
+  },30);
+ }
+ function getStyle(obj,attr)
+ {
+  if(obj.currentStyle){
+  return obj.currentStyle[attr];
+  }
+  else{
+  return getComputedStyle(obj,false)[attr];
+  }
+ }
+}
+
+//offsetWidth获取的是元素实际的宽度（包括边框和内边距）
+//只要是多物体运动，所有的属性都不能共用
+</script>

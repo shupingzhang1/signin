@@ -1,0 +1,85 @@
+/*登录页面*/
+.panel-heading{
+	
+	height: 40px;
+	}
+.panel-body
+{
+	height: 250px;
+	margin-top: 10px;
+}
+
+.dr{
+	margin-top: 130px;
+}
+
+.dran{
+	width: 100%;
+
+}
+.errors{
+	height: 10px;
+}
+p.errors{
+	color: red;
+}
+
+
+.input_email,.input_password{
+	background-color: #f2f6f9;
+}
+
+p.error{
+	color:red;
+	margin-top: 2px;
+}
+
+/*注册页面*/
+
+
+/*头部 跳转到登录界面右浮动*/
+h2.panel-title_2{
+	float: right;
+	margin-top: -18px;
+}
+
+
+
+/*注册输入部分整体*/
+.zc-panel-body
+{
+	height:400px;
+	margin-top: 10px;
+}
+/*注册按钮*/
+.zcan{
+	width: 100%;
+	margin-top: 10px;
+}
+
+/*输入框初始颜色*/
+.aa{
+	background-color: #f2f6f9;
+
+}
+
+
+
+/*验证码显示*/
+.yanzhengma{
+	margin-right: 10px;
+}
+
+/*<!-- 显示错误信息 区域-->*/
+.show_errors
+{
+	
+	height: 30px;
+	margin-top: 0px;
+}
+
+/*姓名输入区域上边距*/
+.input_name
+{
+	margin-top: 5px;
+}
